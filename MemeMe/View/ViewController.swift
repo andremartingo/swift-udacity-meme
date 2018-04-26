@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController,UIImagePickerControllerDelegate,
 UINavigationControllerDelegate, UITextFieldDelegate{
 
+    @IBOutlet weak var viewTest: UIView!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -19,7 +20,6 @@ UINavigationControllerDelegate, UITextFieldDelegate{
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
     
-    @IBOutlet weak var topBar: UIToolbar!
     @IBOutlet weak var bottomBar: UIToolbar!
     
     let memeTextAttributes:[String: Any] = [
@@ -144,18 +144,18 @@ UINavigationControllerDelegate, UITextFieldDelegate{
     
     func generateMemedImage() -> UIImage {
         
-        topBar.isHidden = true
-        bottomBar.isHidden = true
+//        topBar.isHidden = true
+//        bottomBar.isHidden = true
         
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(viewTest.bounds.size)
+        viewTest.drawHierarchy(in: viewTest.bounds, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         
-        topBar.isHidden = false
-        bottomBar.isHidden = false
+//        topBar.isHidden = false
+//        bottomBar.isHidden = false
         
         return memedImage
     }
