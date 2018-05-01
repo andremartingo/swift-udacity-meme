@@ -22,11 +22,11 @@ UINavigationControllerDelegate, UITextFieldDelegate{
     
     @IBOutlet weak var bottomBar: UIToolbar!
     
-    let memeTextAttributes:[String: Any] = [
-        NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
-        NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
-        NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedStringKey.strokeWidth.rawValue: 5]
+    let memeTextAttributes = [
+        NSAttributedStringKey.strokeColor.rawValue : UIColor.black,
+        NSAttributedStringKey.foregroundColor.rawValue : UIColor.white,
+        NSAttributedStringKey.font.rawValue : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSAttributedStringKey.strokeWidth.rawValue : -3.0 ] as [String : Any]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,11 +50,13 @@ UINavigationControllerDelegate, UITextFieldDelegate{
     
     // MARK: Textfield Config
     func textFieldInit(_ textField: UITextField, initalText: String){
+
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.delegate = self
         textField.text = initalText
         textField.textAlignment = .center
-        textField.delegate = self
-        textField.defaultTextAttributes = self.memeTextAttributes
         textField.autocapitalizationType = .allCharacters
+        textField.backgroundColor = .white
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField){
@@ -140,22 +142,20 @@ UINavigationControllerDelegate, UITextFieldDelegate{
         // Create the meme
         let memedImage = generateMemedImage()
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     func generateMemedImage() -> UIImage {
-        
-//        topBar.isHidden = true
-//        bottomBar.isHidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(viewTest.bounds.size)
         viewTest.drawHierarchy(in: viewTest.bounds, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        
-        
-//        topBar.isHidden = false
-//        bottomBar.isHidden = false
         
         return memedImage
     }
