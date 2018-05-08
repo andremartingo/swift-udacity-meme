@@ -15,6 +15,9 @@ class MemeCollectionViewController: UICollectionViewController {
     let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
     
     // MARK: Table View Data Source
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView?.reloadData()
+    }
     override func viewDidLoad() {
         memes = appDelegate.memes
         navigationItem.title = "Memes"

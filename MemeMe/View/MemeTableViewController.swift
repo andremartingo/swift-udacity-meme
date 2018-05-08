@@ -13,16 +13,25 @@ class MemeTableViewController: UITableViewController,UIViewControllerTransitioni
     // MARK: Properties
     var memes = [Meme]()
     let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+    let getAllMemesController : GetAllMemesController! = nil
     
     // MARK: Table View Data Source
-    override func viewDidLoad() {
+    
+    //When View Appear
+    override func viewWillAppear(_ animated: Bool) {
         memes = appDelegate.memes
         tableView.reloadData()
+    }
+    
+    //First Time View
+    override func viewDidLoad() {
+        memes = appDelegate.memes
         navigationItem.title = "Memes"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add , target: self, action: #selector(addTapped))
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(memes.count)
         return memes.count
     }
     
@@ -37,6 +46,20 @@ class MemeTableViewController: UITableViewController,UIViewControllerTransitioni
         return cell
     }
     
+    override func tableView(_ tableView: UITableView,editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
+        }
+        
+        let share = UITableViewRowAction(style: .normal, title: "Disable") { (action, indexPath) in
+            // share item at indexPath
+        }
+        
+        share.backgroundColor = UIColor.blue
+        
+        return [delete, share]
+    }
+    
     // MARK: Push details VC
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
@@ -44,6 +67,8 @@ class MemeTableViewController: UITableViewController,UIViewControllerTransitioni
         navigationController!.pushViewController(detailViewController, animated: true)
     }
     @objc func addTapped() {
-        print("tapped")
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        navigationController!.pushViewController(viewController, animated: true)    
+        
     }
 }

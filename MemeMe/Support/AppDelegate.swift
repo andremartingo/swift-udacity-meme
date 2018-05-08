@@ -55,7 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         for meme in memes {
             self.memes.append(meme)
-            print(meme)
         }
         
     }
