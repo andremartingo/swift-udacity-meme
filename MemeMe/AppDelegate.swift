@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        loadMemes()
         return true
     }
 
@@ -41,6 +42,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func loadMemes() {
+        let memes = [
+            Meme(topText: "U D A C I T Y", bottomText: "R O C K S", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "meme1")!),
+            Meme(topText: "WHEN YOURE AT WORK", bottomText: "TRYNG TO STAY POSATIVE", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "meme2")!),
+            Meme(topText: "YOURE A FUNNY GUY", bottomText: "I LIKE THAT", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "meme3")!),
+            Meme(topText: "WHAT IF 666", bottomText: "IS THE SQUARE ROOT", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "meme4")!),
+            Meme(topText: "BE THERE", bottomText: "OR BE SQUARE", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "meme5")!),
+            Meme(topText: "NEED AN ARC?", bottomText: "I NOAH GUY", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "meme6")!)
+        ]
+        
+        for meme in memes {
+            self.memes.append(meme)
+            print(meme)
+        }
+        
+    }
+    
 
 
 }

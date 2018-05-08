@@ -1,15 +1,15 @@
 //
-//  TableViewController.swift
+//  MemeCollectionView.swift
 //  MemeMe
 //
-//  Created by André Martingo on 02/05/2018.
+//  Created by André Martingo on 08/05/2018.
 //  Copyright © 2018 André Martingo. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class MemeTableViewController: UITableViewController,UIViewControllerTransitioningDelegate{
-    
+class MemeCollectionViewController: UICollectionViewController {
     // MARK: Properties
     var memes = [Meme]()
     let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
@@ -17,32 +17,36 @@ class MemeTableViewController: UITableViewController,UIViewControllerTransitioni
     // MARK: Table View Data Source
     override func viewDidLoad() {
         memes = appDelegate.memes
-        tableView.reloadData()
         navigationItem.title = "Memes"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add , target: self, action: #selector(addTapped))
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return memes.count
+    // MARK: Collection View Data Source
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.memes.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell")!
-        let data = memes[(indexPath as NSIndexPath).row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as! MemeCollectionViewCell
+
+        let meme = self.memes[(indexPath as NSIndexPath).row]
         
-        cell.textLabel?.text = data.topText
-        cell.detailTextLabel?.text = "\(data.topText) ... \(data.bottomText)"
-        cell.imageView?.image = data.memedImage;
+        // Set the name and image
+        cell.memeImageView.image = meme.memedImage
+        
         return cell
     }
     
-    // MARK: Push details VC
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
+        
         let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         detailViewController.meme = self.memes[indexPath.row]
         navigationController!.pushViewController(detailViewController, animated: true)
+        
     }
+    
     @objc func addTapped() {
         print("tapped")
     }
