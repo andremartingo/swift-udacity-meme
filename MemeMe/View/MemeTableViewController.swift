@@ -12,26 +12,25 @@ class MemeTableViewController: UITableViewController,UIViewControllerTransitioni
     
     // MARK: Properties
     var memes = [Meme]()
-    let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-    let getAllMemesController : GetAllMemesController! = nil
+    var getAllMemesController : GetAllMemesController!
     
     // MARK: Table View Data Source
     
     //When View Appear
     override func viewWillAppear(_ animated: Bool) {
-        memes = appDelegate.memes
+        memes = getAllMemesController.getAllMemes()
         tableView.reloadData()
     }
     
     //First Time View
     override func viewDidLoad() {
-        memes = appDelegate.memes
+        super.viewDidLoad()
+        getAllMemesController = GetAllMemesController()
         navigationItem.title = "Memes"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add , target: self, action: #selector(addTapped))
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(memes.count)
         return memes.count
     }
     

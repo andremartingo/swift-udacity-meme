@@ -11,14 +11,20 @@ import UIKit
 
 class MemoRepository {
     
+    static let sharedInstance = MemoRepository()
+    
     var memes = [Meme]()
     
-    init() {
+    private init() {
         loadMemes()
     }
     
     func getAll() -> [Meme] {
         return memes
+    }
+    
+    func save(_ meme: Meme) {
+        self.memes.append(meme)
     }
     
     private func loadMemes() {

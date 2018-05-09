@@ -14,7 +14,7 @@ class GetAllMemesController {
     var memeRepo:MemoRepository!
     
     init(){
-        memeRepo = MemoRepository()
+        memeRepo = MemoRepository.sharedInstance
     }
     
     func getAllMemes() -> [Meme]{

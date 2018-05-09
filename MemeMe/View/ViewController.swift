@@ -16,11 +16,11 @@ UINavigationControllerDelegate, UITextFieldDelegate{
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    
     @IBOutlet weak var shareButton: UIBarButtonItem!
-    
-    
     @IBOutlet weak var bottomBar: UIToolbar!
+    
+    var createMemeController : CreateMemeController!
+
     
     let memeTextAttributes = [
         NSAttributedStringKey.strokeColor.rawValue : UIColor.black,
@@ -30,6 +30,7 @@ UINavigationControllerDelegate, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createMemeController = CreateMemeController()
         imagePickerView.contentMode = .scaleAspectFill
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         textFieldInit(topTextField, initalText: "TOP")
@@ -139,14 +140,15 @@ UINavigationControllerDelegate, UITextFieldDelegate{
     
     
     func save() {
-        // Create the meme
+//        // Create the meme
         let memedImage = generateMemedImage()
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
-        
-        // Add it to the memes array in the Application Delegate
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
-        appDelegate.memes.append(meme)
+//        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+//
+//        // Add it to the memes array in the Application Delegate
+//        let object = UIApplication.shared.delegate
+//        let appDelegate = object as! AppDelegate
+//        appDelegate.memes.append(meme)
+        createMemeController.save(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
     }
     
     func generateMemedImage() -> UIImage {
