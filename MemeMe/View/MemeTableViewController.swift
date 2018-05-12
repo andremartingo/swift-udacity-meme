@@ -28,6 +28,7 @@ class MemeTableViewController: UITableViewController,UIViewControllerTransitioni
         getAllMemesController = GetAllMemesController()
         navigationItem.title = "Memes"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add , target: self, action: #selector(addTapped))
+        self.tableView.register(MemeTableViewCell.classForCoder(), forCellReuseIdentifier: "MemeTableViewCell")
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,12 +37,14 @@ class MemeTableViewController: UITableViewController,UIViewControllerTransitioni
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell")!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableViewCell") as? MemeTableViewCell else {
+            return UITableViewCell()
+        }
+        
         let data = memes[(indexPath as NSIndexPath).row]
         
-        cell.textLabel?.text = data.topText
-        cell.detailTextLabel?.text = "\(data.topText) ... \(data.bottomText)"
-        cell.imageView?.image = data.memedImage;
+        cell.configure(title: data.topText, image: data.memedImage)
+    
         return cell
     }
     

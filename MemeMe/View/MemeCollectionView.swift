@@ -51,6 +51,6 @@ class MemeCollectionViewController: UICollectionViewController {
     }
     
     @objc func addTapped() {
-        print("tapped")
-    }
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        navigationController!.pushViewController(viewController, animated: true)        }
 }

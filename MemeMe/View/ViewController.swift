@@ -36,6 +36,7 @@ UINavigationControllerDelegate, UITextFieldDelegate{
         textFieldInit(topTextField, initalText: "TOP")
         textFieldInit(bottomTextField, initalText: "BOTTOM")
         shareButton.isEnabled = false
+        title = "Create New Meme"
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -132,7 +133,7 @@ UINavigationControllerDelegate, UITextFieldDelegate{
         
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
-        return keyboardSize.cgRectValue.height
+        return keyboardSize.cgRectValue.height - 83
     }
 
     
