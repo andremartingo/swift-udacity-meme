@@ -12,14 +12,15 @@ import UIKit
 class MemeCollectionViewController: UICollectionViewController {
     // MARK: Properties
     var memes = [Meme]()
-    let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-    
+    var getAllMemesController : GetAllMemesController!
+
     // MARK: Table View Data Source
     override func viewWillAppear(_ animated: Bool) {
+        memes = getAllMemesController.getAllMemes()
         collectionView?.reloadData()
     }
     override func viewDidLoad() {
-        memes = appDelegate.memes
+        getAllMemesController = GetAllMemesController()
         navigationItem.title = "Memes"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add , target: self, action: #selector(addTapped))
     }

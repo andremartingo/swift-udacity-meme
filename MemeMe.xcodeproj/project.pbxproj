@@ -184,10 +184,10 @@
 				302889A820760A43001E89B1 /* ViewController.swift */,
 				302889AA20760A43001E89B1 /* Main.storyboard */,
 				30FB5E252099ECDF002B29F0 /* MemeTableViewController.swift */,
+				309AA5FB20A6FC1E00270BE3 /* MemeTableViewCell.swift */,
 				302D072E20A191A2001DC0C3 /* DetailViewController.swift */,
 				302D073020A19D27001DC0C3 /* MemeCollectionView.swift */,
 				302D073220A19FCC001DC0C3 /* MemeCollectionViewCell.swift */,
-				309AA5FB20A6FC1E00270BE3 /* MemeTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

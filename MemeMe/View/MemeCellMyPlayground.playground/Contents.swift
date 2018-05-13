@@ -6,7 +6,6 @@ import PlaygroundSupport
 class MemeTableViewCell : UIView {
     
     var titLelabel: UILabel = UILabel()
-    var imageField : UIImageView = UIImageView()
     
     override init(frame: CGRect = CGRect.zero) {
         super.init(frame: CGRect.zero)
@@ -15,10 +14,10 @@ class MemeTableViewCell : UIView {
         fatalError("Not implemented")
     }
     
-    func configure(title: String, image: UIImage) {
+    func configure(title: String) {
         
         self.titLelabel.text = title
-        self.imageField.image = image
+//        self.imageField.image = image
         
         configureViews()
     }
@@ -26,18 +25,18 @@ class MemeTableViewCell : UIView {
     func configureViews() {
         
         addSubview(titLelabel)
-        addSubview(imageField)
-        
-        imageField.translatesAutoresizingMaskIntoConstraints = false
-        
-        //Image
-        imageField.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        imageField.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        imageField.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        imageField.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        imageField.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        
-        titLelabel.translatesAutoresizingMaskIntoConstraints = false
+//        addSubview(imageField)
+//
+//        imageField.translatesAutoresizingMaskIntoConstraints = false
+//
+//        //Image
+//        imageField.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+//        imageField.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+//        imageField.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+//        imageField.widthAnchor.constraint(equalToConstant: 60).isActive = true
+//        imageField.heightAnchor.constraint(equalToConstant: 60).isActive = true
+//
+//        titLelabel.translatesAutoresizingMaskIntoConstraints = false
         
         // TitleLabel
         titLelabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -45,7 +44,7 @@ class MemeTableViewCell : UIView {
         //Right
         titLelabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         //Left
-        titLelabel.leadingAnchor.constraint(equalTo: self.imageField.trailingAnchor, constant: 15).isActive = true
+        titLelabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15).isActive = true
         
         titLelabel.textColor = .blue
         
@@ -68,10 +67,9 @@ class MemeTableViewCell : UIView {
 //}
 
 
-let image = UIImage.init()
 let cell = MemeTableViewCell.init()
 
-cell.configure(title: "ola", image: image)
+cell.configure(title: "ola")
 
 
 //let label = UILabel.init()
