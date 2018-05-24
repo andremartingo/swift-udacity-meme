@@ -35,7 +35,7 @@ This App is the Final Project for UIKit Course from <a href="https://www.udacity
 
 ## Folder Structure
 
-<img height="400" title="Size Limit logo" src="./screenshots/folder_structure.png">
+<img height="400" title="Size Limit logo" src="./Screenshots/folder_structure.png">
 
 ## Instalation
 
