@@ -1,51 +1,45 @@
 <p align="center">
-  <img width="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" />
+  <img width="200" src="https://img.deusm.com/informationweek/2015/09/1322066/Swift_logo.png" />
 </p>
 
-# React Redux Blog
-React MVP Blog. Use an API for backend requests.
+<a href="https://developer.apple.com/swift/" target="_blank">
+  <img src="https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat" alt="Swift 4.0">
+</a>
 
-## Demo
+<a href="https://www.udacity.com/course/ios-developer-nanodegree--nd003" target="_blank">
+  <img src="https://img.shields.io/badge/nanodegree-iOS-4DB1DB.svg" alt="Udacity Page" />
+</a>  
 
-## Mocks
-<img width="700" src="https://cdn-images-1.medium.com/max/1600/1*W9EVx20lNtyHafutHeG7ig.png"/>
+# MemeMe 
+
+With MemeMe you can create multiple persistent memes using your fotos from your iPhone media library or take one from your camera directly.
+This App is the Final Project for UIKit Course from <a href="https://www.udacity.com/course/ios-developer-nanodegree--nd003" target="_blank"> Udacity </a>.
+
+## Screenshots
+
+<img width="250" src="./screenshots/tableview.png"/>
+<img width="250" src="./screenshots/collectionview.png"/>
+<img width="250" src="./screenshots/detailview.png"/>
+<img width="250" src="./screenshots/creatememe.png"/>
+
 
 ## Buzzwords
-* React
-* React Router
-* Axios
-* Redux
-* Webpack
-* ES6
+
+* UIKit
+* UIViewController
+* UITableViewController
+* UICollectionViewController
+* Segues
+* Repository Pattern
+* MVC
 
 ## Folder Structure
 
-```
-my-app/
-  README.md
-  node_modules/
-  package.json
-  public/
-    index.html
-    favicon.ico
-  src/
-    App.css
-    App.js
-    App.test.js
-    index.css
-    index.js
-    logo.svg
-```
+<img height="400" title="Size Limit logo" src="./screenshots/folder_structure.png">
 
 ## Instalation
-```bash
-$ git clone git@github.com:andremartingo/react_blog.git
-$ cd react_blog
-$ npm install
 
-```
-## Usage
 ```bash
-$ npm start
-$ open browser and go to: localhost:8080
+git clone https://github.com/andremartingo/udacity-iOS-meme.git
+open MemeMe.xcodeproj
 ```
