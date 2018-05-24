@@ -17,10 +17,10 @@ This App is the Final Project for UIKit Course from <a href="https://www.udacity
 
 ## Screenshots
 
-<img width="250" src="./Screenshots/tableview.png"/>
-<img width="250" src="./Screenshots/collectionview.png"/>
-<img width="250" src="./Screenshots/detailview.png"/>
-<img width="250" src="./Screenshots/creatememe.png"/>
+<img width="250" src="./Screenshots/tableview.png"/> <img width="250" src="./Screenshots/collectionview.png"/>
+
+<img width="250" src="./Screenshots/detailview.png"/> <img width="250" src="./Screenshots/creatememe.png"/>
+
 
 
 ## Buzzwords
