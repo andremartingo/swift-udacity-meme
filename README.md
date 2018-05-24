@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="200" src="https://img.deusm.com/informationweek/2015/09/1322066/Swift_logo.png" />
+  <img width="150" height="150" src="https://img.deusm.com/informationweek/2015/09/1322066/Swift_logo.png" />
 </p>
 
 <a href="https://developer.apple.com/swift/" target="_blank">
