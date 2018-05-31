@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="200" src="https://img.deusm.com/informationweek/2015/09/1322066/Swift_logo.png" />
+  <img width="150" height="150" src="https://img.deusm.com/informationweek/2015/09/1322066/Swift_logo.png" />
 </p>
 
 <a href="https://developer.apple.com/swift/" target="_blank">
@@ -17,10 +17,10 @@ This App is the Final Project for UIKit Course from <a href="https://www.udacity
 
 ## Screenshots
 
-<img width="250" src="./screenshots/tableview.png"/>
-<img width="250" src="./screenshots/collectionview.png"/>
-<img width="250" src="./screenshots/detailview.png"/>
-<img width="250" src="./screenshots/creatememe.png"/>
+<img width="250" src="./Screenshots/tableview.png"/> <img width="250" src="./Screenshots/collectionview.png"/>
+
+<img width="250" src="./Screenshots/detailview.png"/> <img width="250" src="./Screenshots/creatememe.png"/>
+
 
 
 ## Buzzwords
@@ -35,7 +35,7 @@ This App is the Final Project for UIKit Course from <a href="https://www.udacity
 
 ## Folder Structure
 
-<img height="400" title="Size Limit logo" src="./screenshots/folder_structure.png">
+<img height="400" title="Size Limit logo" src="./Screenshots/folder_structure.png">
 
 ## Instalation
 
